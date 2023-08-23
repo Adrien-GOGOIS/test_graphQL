@@ -1,11 +1,8 @@
-import todos from '../database/todos.json' assert { type: "json" };
+import todoServiceInstance from '../services/todo.service.js'
 
 const Query = {
-	hello: (_, { name }) => `Hello ${name || "World"}!`,
-	getTodos: () => todos,
-	getTodo: ( _, { id } ) => {
-		return todos[id - 1]
-	}
+	getTodos: () => todoServiceInstance.findAll(),
+	getTodo: ( _, { id } ) => todoServiceInstance.findById(id)
 }
 
 export default Query;

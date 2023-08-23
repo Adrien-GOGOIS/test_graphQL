@@ -14,5 +14,6 @@ type Todo {
 
 type Query {
 	hello(name: String): String!,
-	getTodos(id: ID): [Todo]
+	getTodos: [Todo]
+	getTodo(id: Int): Todo
 }

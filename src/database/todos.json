@@ -19,5 +19,12 @@
 		"content": "Yes, you're smelling cat",
 		"status": "DONE",
 		"user_id": 4
+	},
+	{
+		"id": 7,
+		"name": "Brush your teeth",
+		"content": "Thank you for the fresh breath",
+		"status": "WAITING",
+		"user_id": 4
 	}
 ]

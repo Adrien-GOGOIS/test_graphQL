@@ -12,6 +12,9 @@ class TodoService {
 			return todo
 		}
 	}
+	findByUserId = (userId) => {
+		return todos.filter(todo => todo.user_id === userId);
+	}
 }
 
 const todoServiceInstance = new TodoService()

@@ -3,18 +3,21 @@
 		"id": 1,
 		"name": "Get a job",
 		"content": "Move your ass from the couch, go outside and find a job",
-		"status": "CANCELED"
+		"status": "CANCELED",
+		"user_id": 2
 	},
 	{
 		"id": 2,
 		"name": "Clean this mess",
 		"content": "Stop playing video games and clean this damn house",
-		"status": "WAITING"
+		"status": "WAITING",
+		"user_id": 1
 	},
 	{
 		"id": 3,
 		"name": "Get a shower",
 		"content": "Yes, you're smelling cat",
-		"status": "DONE"
+		"status": "DONE",
+		"user_id": 4
 	}
 ]

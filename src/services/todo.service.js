@@ -5,11 +5,11 @@ class TodoService {
 		return todos;
 	}
 	findById = (id) => {
-		const response = todos[id - 1]
-		if (!response) {
+		const todo = todos.find((element) => element.id === id)
+		if (!todo) {
 			throw new Error('No todo found, you lucky bastard!')
 		} else {
-			return response
+			return todo
 		}
 	}
 }

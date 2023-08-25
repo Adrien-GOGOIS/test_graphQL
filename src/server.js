@@ -2,7 +2,10 @@ import { createServer } from 'node:http'
 import { createYoga } from 'graphql-yoga'
 import { schema } from './schema/schema.js'
 
-const yoga = createYoga({ schema })
+import usersDatabase from './database/users.json' assert { type: "json" };
+import todosDatabase from './database/todos.json' assert { type: "json" };
+
+const yoga = createYoga({ schema, context: { usersDatabase, todosDatabase } })
 const server = createServer(yoga)
 
 server.listen(4000, () => {

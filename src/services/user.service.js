@@ -1,11 +1,9 @@
-import users from '../database/users.json' assert { type: "json" };
-
 class UserService {
-	findAll = () => {
-		return users;
+	findAll = (database) => {
+		return database;
 	}
-	findById = (id) => {
-		const user = users.find((element) => element.id === id)
+	findById = (id, database) => {
+		const user = database.find((element) => element.id === id)
 		if (!user) {
 			throw new Error('No user found! Maybe this show is over')
 		} else {

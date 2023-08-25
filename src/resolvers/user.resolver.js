@@ -1,8 +1,8 @@
 import todoServiceInstance from "../services/todo.service.js";
 
 const User = {
-	todos: (parent) => {
-		return todoServiceInstance.findByUserId(parent.id)
+	todos: (parent, _args, { todosDatabase }) => {
+		return todoServiceInstance.findByUserId(parent.id, todosDatabase)
 	}
 }
 

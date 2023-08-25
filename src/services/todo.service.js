@@ -1,19 +1,17 @@
-import todos from '../database/todos.json' assert { type: "json" };
-
 class TodoService {
-	findAll = () => {
-		return todos;
+	findAll = (database) => {
+		return database;
 	}
-	findById = (id) => {
-		const todo = todos.find((element) => element.id === id)
+	findById = (id, database) => {
+		const todo = database.find((element) => element.id === id)
 		if (!todo) {
 			throw new Error('No todo found, you lucky bastard!')
 		} else {
 			return todo
 		}
 	}
-	findByUserId = (userId) => {
-		return todos.filter(todo => todo.user_id === userId);
+	findByUserId = (userId, database) => {
+		return database.filter(todo => todo.user_id === userId);
 	}
 }
 

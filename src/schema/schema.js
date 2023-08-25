@@ -7,4 +7,7 @@ import User from '../resolvers/user.resolver.js';
 const typeDefs = await loadFiles('src/schema/**/*.graphql');
 const resolvers = { Query, Todo, User };
 
-export const schema = createSchema({ typeDefs, resolvers })
+export const schema = createSchema({ 
+	typeDefs, 
+	resolvers
+})

@@ -1,9 +1,7 @@
-import * as fs from "fs";
 import userServiceInstance from "./user.service.js";
+import DatabaseService from "./database.service.js";
 
 class TodoService {
-	JSON_FILE_PATH = 'src/database/todos.json';
-
 	findAll = (database) => {
 		return database;
 	}
@@ -32,17 +30,10 @@ class TodoService {
 			status: "WAITING",
 			user_id: userId
 		};
-		await this.addTodoInDatabase(newTodo, context.todosDatabase);
+		context.todosDatabase.push(newTodo);
+		const databaseService = new DatabaseService('src/database/todos.json')
+		await databaseService.updateDatabase(context.todosDatabase)
 		return newTodo;
-	}
-
-	async addTodoInDatabase(todo, database) {
-		try {
-			database.push(todo);
-			fs.writeFileSync(this.JSON_FILE_PATH, JSON.stringify(database), 'utf8');
-		} catch(error) {
-			throw new Error('Something wrong happened writing file : ', error)
-		}
 	}
 }
 

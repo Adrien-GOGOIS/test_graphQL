@@ -27,3 +27,7 @@ type Query {
 	getUsers: [User]
 	getUser(id: Int): User
 }
+
+type Mutation {
+	createTodo(name: String!, content: String!, userId: Int!) : Todo!
+}

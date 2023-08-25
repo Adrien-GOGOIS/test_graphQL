@@ -26,5 +26,12 @@
 		"content": "Thank you for the fresh breath",
 		"status": "WAITING",
 		"user_id": 4
+	},
+	{
+		"id": 702,
+		"name": "Get out and makes some friends",
+		"content": "You are alone and depressed",
+		"status": "WAITING",
+		"user_id": 1
 	}
 ]

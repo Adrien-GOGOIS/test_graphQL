@@ -1,8 +1,8 @@
 import todoServiceInstance from "../services/todo.service.js";
 
 const Mutation = {
-	createTodo: (parent, args, context) => {
-		return todoServiceInstance.createOne(args, context);
+	createTodo: (parent, { input }, context) => {
+		return todoServiceInstance.createOne(input, context);
 	} 
 }
 

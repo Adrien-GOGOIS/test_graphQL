@@ -26,6 +26,14 @@ input CreateTodoInput {
 	userId: Int!
 }
 
+input UpdateTodoInput {
+	id: ID!
+	name: String
+	content: String
+	status: Status
+	userId: Int
+}
+
 type Query {
 	hello(name: String): String!,
 	getTodos: [Todo]
@@ -35,5 +43,7 @@ type Query {
 }
 
 type Mutation {
-	createTodo(input: CreateTodoInput) : Todo!
+	createTodo(input: CreateTodoInput): Todo!
+	updateTodo(input: UpdateTodoInput): Todo!
+	deleteTodo(id: Int!): [Todo]
 }

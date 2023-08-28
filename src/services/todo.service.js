@@ -38,7 +38,7 @@ class TodoService {
 		return newTodo;
 	}
 
-	updateOne = (body, context) => {
+	updateOne = (body, database) => {
 		const { id, name, content, status, userId } = body;
 		const updatedTodo = {
 			id: parseInt(id),
@@ -47,15 +47,18 @@ class TodoService {
 			status,
 			user_id: userId
 		}
-		const todoIndex = context.todosDatabase.findIndex(todo => todo.id === parseInt(id));
-		context.todosDatabase[todoIndex] = updatedTodo;
+		const todoIndex = database.findIndex(todo => todo.id === parseInt(id));
+		database[todoIndex] = updatedTodo;
 		const dataService = new DatabaseService(this.TODO_DB_PATH);
-		dataService.updateDatabase(context.todosDatabase);
-		return context.todosDatabase[todoIndex];
+		dataService.updateDatabase(database);
+		return database[todoIndex];
 	}
 
-	deleteOne = (id) => {
-		console.log({id})
+	deleteOne = (id, database) => {
+		const updatedTodos = database.filter(todo => todo.id !== id);
+		const dataService = new DatabaseService(this.TODO_DB_PATH);
+		dataService.updateDatabase(updatedTodos);
+		return updatedTodos;
 	}
 }
 

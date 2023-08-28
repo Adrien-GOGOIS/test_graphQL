@@ -3,6 +3,7 @@ import DatabaseService from "./database.service.js";
 
 class TodoService {
 	TODO_DB_PATH = 'src/database/todos.json'
+	databaseService = new DatabaseService(this.TODO_DB_PATH);
 
 	findAll = (database) => {
 		return database;
@@ -33,8 +34,7 @@ class TodoService {
 			user_id: userId
 		};
 		context.todosDatabase.push(newTodo);
-		const databaseService = new DatabaseService(this.TODO_DB_PATH)
-		await databaseService.updateDatabase(context.todosDatabase)
+		await this.databaseService.updateDatabase(context.todosDatabase)
 		return newTodo;
 	}
 
@@ -49,15 +49,13 @@ class TodoService {
 		}
 		const todoIndex = database.findIndex(todo => todo.id === parseInt(id));
 		database[todoIndex] = updatedTodo;
-		const dataService = new DatabaseService(this.TODO_DB_PATH);
-		dataService.updateDatabase(database);
+		this.databaseService.updateDatabase(database);
 		return database[todoIndex];
 	}
 
 	deleteOne = (id, database) => {
 		const updatedTodos = database.filter(todo => todo.id !== id);
-		const dataService = new DatabaseService(this.TODO_DB_PATH);
-		dataService.updateDatabase(updatedTodos);
+		this.databaseService.updateDatabase(updatedTodos);
 		return updatedTodos;
 	}
 }

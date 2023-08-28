@@ -46,4 +46,10 @@ type Mutation {
 	createTodo(input: CreateTodoInput): Todo!
 	updateTodo(input: UpdateTodoInput): Todo!
 	deleteTodo(id: Int!): [Todo]
+	broadcastRandomNumber(number: Int): Int!
+}
+
+type Subscription {
+	todo: Todo!
+	randomNumber: Int!
 }

@@ -9,7 +9,6 @@ export default class DatabaseService {
 
 	async updateDatabase(data) {
 		try {
-			console.log(this.JSON_FILE_PATH, JSON.stringify(data));
 			fs.writeFileSync(this.JSON_FILE_PATH, JSON.stringify(data), 'utf8');
 		} catch(error) {
 			throw new Error('Something wrong happened writing file : ', error)
